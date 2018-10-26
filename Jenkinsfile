@@ -1,12 +1,15 @@
 pipeline {
     agent any
-
+    def mvnHome
     stages {
         stage ('Compile Stage') {
 
             steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    bat 'mvn clean compile'
+                mvnHome = tool 'M3'
+                if (isUnix()) {
+                    sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+                } else {
+                    bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
                 }
             }
         }
