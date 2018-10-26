@@ -65,7 +65,7 @@
     <distributionManagement>
         <repository>
             <id>absolute Directory</id>
-            <url>c:\Program Files(x86)\jenkins</url>
+            <url>C:\Program Files(x86)\Jenkins</url>
         </repository>
     </distributionManagement>
 
