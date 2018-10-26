@@ -1,9 +1,12 @@
 pipeline {
+     environment {
+        mvnHome = tool 'M3'
+   }
     agent any
     stages {
         stage ('Compile Stage') {
             steps {
-               bat(/"M3\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+               bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
             }
         }
 
