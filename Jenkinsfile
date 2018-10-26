@@ -3,9 +3,9 @@ pipeline {
     def mvnHome
     stages {
         stage ('Compile Stage') {
-
+            mvnHome = tool 'M3'
             steps {
-                mvnHome = tool 'M3'
+                
                 if (isUnix()) {
                     sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
                 } else {
