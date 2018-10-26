@@ -24,7 +24,7 @@ pipeline {
         stage ('Deployment Stage') {
             steps{
                 junit '**/target/surefire-reports/TEST-*.xml'
-                archive 'target/*.jar'
+                archive '*.jar'
             }
 
         }
